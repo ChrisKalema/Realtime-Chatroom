@@ -58,7 +58,34 @@
         </form>
 
     </div>
+    <!-- connect the app to firebase -->
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firestore.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCW1IyUgvSMmIUBqWW_ce7M2Df3pJqavt0",
+        authDomain: "modern-js-2020.firebaseapp.com",
+        databaseURL: "https://modern-js-2020.firebaseio.com",
+        projectId: "modern-js-2020",
+        storageBucket: "modern-js-2020.appspot.com",
+        messagingSenderId: "647030139942",
+        appId: "1:647030139942:web:c152d998eac89b43e38ae7",
+        measurementId: "G-YGZGYE9Z33"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore();
+    </script>
 
     <script src="scripts/chatroom.js"></script>
     <script src="scripts/ui.js"></script>
