@@ -19,9 +19,14 @@ class Chatroom{
         room: this.room,
         created_at: firebase.firestore.Timestamp.fromDate(now)
         };
-
+        //save the chat document to the firebase database
+        const response = await this.chats.add(chat);
+        return response;
     };
 }
 
 const chatroom = new Chatroom('general', 'Chris');
 console.log(chatroom);
+
+chatroom.addChat('Hello dawgs')
+    .then(()=>console.log('chat added'));
