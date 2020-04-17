@@ -14,7 +14,7 @@ class Chatroom{
         // format a chat object
         const now = new Date();
         const chat = {
-        message: this.message,
+        message,    
         username: this.username,
         room: this.room,
         created_at: firebase.firestore.Timestamp.fromDate(now)
@@ -28,5 +28,6 @@ class Chatroom{
 const chatroom = new Chatroom('general', 'Chris');
 console.log(chatroom);
 
-chatroom.addChat('Hello dawgs')
-    .then(()=>console.log('chat added'));
+chatroom.addChat('hello dawgs')
+    .then(()=>console.log('chat added'))
+    .catch(error => console.log(error));
