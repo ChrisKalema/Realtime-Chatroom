@@ -60,20 +60,15 @@ class Chatroom{
 const chatroom = new Chatroom('general', 'marty');
 console.log(chatroom);
 
-// chatroom.updateRoom('cybersec');
 
-// chatroom.getChats((data) =>{
-//     console.log(data);
-// });
-
-setTimeout(()=>{
-    chatroom.updateRoom('cybersec');
-    chatroom.updateName('elon');
-    chatroom.addChat('tesla is a meme');
-    chatroom.getChats((data) =>{
-        console.log(data);
-    });
-},3000); //after 3 seconds
+// setTimeout(()=>{
+//     chatroom.updateRoom('cybersec');
+//     chatroom.updateName('elon');
+//     chatroom.addChat('tesla is a meme');
+//     chatroom.getChats((data) =>{
+//         console.log(data);
+//     });
+// },3000); //after 3 seconds
 
 // chatroom.addChat('Been there')
 //     .then(()=>console.log('chat added'))
