@@ -8,6 +8,7 @@ class Chatroom{
         this.room = room;
         this.username = username;
         this.chats = db.collection('chats');
+        this.unsub;
     }
 
     async addChat(message){
@@ -26,10 +27,10 @@ class Chatroom{
 
     //set-up realtime listener
     getChats(callback){
-        this.chats
+        this.unsub = this.chats  //to unsbscribe from changes
         //complex queries
             .where('room','==', this.room) //return documents of a particular room + firestore uses double equals instead of triple
-            .orderBy('created_at')
+            // .orderBy('created_at') // to order documents by time created
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change =>{
                     if(change.type === 'added'){
@@ -45,14 +46,34 @@ class Chatroom{
         this.username = username;
     }
 
+    //updating room
+    updateRoom(room){
+        this.room = room;
+        console.log('room updated');
+        if(this.unsub){
+            this.unsub;
+        }
+    }
+
 }
 
 const chatroom = new Chatroom('general', 'marty');
 console.log(chatroom);
 
+// chatroom.updateRoom('cybersec');
+
 // chatroom.getChats((data) =>{
 //     console.log(data);
 // });
+
+setTimeout(()=>{
+    chatroom.updateRoom('cybersec');
+    chatroom.updateName('elon');
+    chatroom.addChat('tesla is a meme');
+    chatroom.getChats((data) =>{
+        console.log(data);
+    });
+},3000); //after 3 seconds
 
 // chatroom.addChat('Been there')
 //     .then(()=>console.log('chat added'))
