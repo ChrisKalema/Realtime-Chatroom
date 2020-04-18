@@ -23,11 +23,31 @@ class Chatroom{
         const response = await this.chats.add(chat);
         return response;
     };
+
+    //set-up realtime listener
+    getChats(callback){
+        this.chats
+        //complex queries
+            .where('room','==', this.room) //firestore uses double equals instead of triple
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change =>{
+                    if(change.type === 'added'){
+                        //update ui
+                        callback(change.doc.data());
+                    }
+                });
+            });
+    }
+
 }
 
-const chatroom = new Chatroom('general', 'Chris');
+const chatroom = new Chatroom('general', 'marty');
 console.log(chatroom);
 
-chatroom.addChat('hello dawgs')
+// chatroom.getChats((data) =>{
+//     console.log(data);
+// });
+
+chatroom.addChat('Been there')
     .then(()=>console.log('chat added'))
     .catch(error => console.log(error));
