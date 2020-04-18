@@ -56,11 +56,6 @@ class Chatroom{
     }
 
 }
-
-const chatroom = new Chatroom('general', 'marty');
-console.log(chatroom);
-
-
 // setTimeout(()=>{
 //     chatroom.updateRoom('cybersec');
 //     chatroom.updateName('elon');
