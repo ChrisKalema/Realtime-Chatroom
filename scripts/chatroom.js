@@ -28,7 +28,8 @@ class Chatroom{
     getChats(callback){
         this.chats
         //complex queries
-            .where('room','==', this.room) //firestore uses double equals instead of triple
+            .where('room','==', this.room) //return documents of a particular room + firestore uses double equals instead of triple
+            .orderBy('created_at')
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change =>{
                     if(change.type === 'added'){
@@ -37,6 +38,11 @@ class Chatroom{
                     }
                 });
             });
+    }
+
+    //updating usernames
+    updateName(username){
+        this.username = username;
     }
 
 }
@@ -48,6 +54,6 @@ console.log(chatroom);
 //     console.log(data);
 // });
 
-chatroom.addChat('Been there')
-    .then(()=>console.log('chat added'))
-    .catch(error => console.log(error));
+// chatroom.addChat('Been there')
+//     .then(()=>console.log('chat added'))
+//     .catch(error => console.log(error));
