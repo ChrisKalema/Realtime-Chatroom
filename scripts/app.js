@@ -1,3 +1,6 @@
+//DOM querries
+const chatList = document.querySelector('.chat.list');
+
 //class instances
 const chatroom = new Chatroom('general', 'marty');
 
