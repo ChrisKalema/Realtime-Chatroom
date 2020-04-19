@@ -1,8 +1,19 @@
-//class instances
-const chatroom = new Chatroom('general', 'marty');
+//class to render chat templates to the DOM
+//clear list of chats when you switch to another room
 
-//get chats and render
-chatroom.getChats((data) =>{
-    console.log(data);
-});
+class ChatUI{
+    constructor(list){
+
+    }
+    render(data){
+        const html = `
+            <li class="list-group-item">
+                <span class = "username">${data.username}</span>
+                <span class = "message">${data.message}</span>
+                <div class="time">${data.created_at.toDate()}</div>
+            </li>
+        `;
+        this.list.innerHTML += html;
+    }
+}
 
