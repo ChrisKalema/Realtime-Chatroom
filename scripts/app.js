@@ -2,8 +2,8 @@
 const chatList = document.querySelector('.chat.list');
 
 //class instances
-const chatUI = new chatUI(chatList);
-const chatroom = new Chatroom('general', 'marty');
+const chatUI = new ChatUI(chatList);
+const chatroom = new Chatroom('gaming', 'Voss');
 
 //get chats and render
 chatroom.getChats((data) =>{
