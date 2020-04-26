@@ -11,6 +11,7 @@ class Chatroom{
         this.unsub;
     }
 
+    //asynchronous method to add message or doc to firestore
     async addChat(message){
         // format a chat object
         const now = new Date();
