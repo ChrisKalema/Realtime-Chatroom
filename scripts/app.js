@@ -9,7 +9,8 @@ const rooms = document.querySelector('.chat-rooms');
 newChatForm.addEventListener('submit', e =>{
     e.preventDefault();
     const message = newChatForm.message.value.trim();
-    //call the addChat() from chatroom.js
+    
+    //call the addChat() method from chatroom.js
     chatroom.addChat(message)
         .then(()=> newChatForm.reset())
         .catch((error)=>console.log(error));
