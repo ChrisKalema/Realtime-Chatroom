@@ -1,6 +1,5 @@
 //class to render chat templates to the DOM
 //clear list of chats when you switch to another room
-
 class ChatUI{
     constructor(list){
         this.list = list;
