@@ -67,6 +67,3 @@ class Chatroom{
 //     });
 // },3000); //after 3 seconds
 
-// chatroom.addChat('Been there')
-//     .then(()=>console.log('chat added'))
-//     .catch(error => console.log(error));
