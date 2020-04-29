@@ -21,6 +21,7 @@ class Chatroom{
         room: this.room,
         created_at: firebase.firestore.Timestamp.fromDate(now)
         };
+        
         //save the chat document to the firebase database
         const response = await this.chats.add(chat);
         return response;
@@ -47,7 +48,6 @@ class Chatroom{
         this.username = username;
         localStorage.setItem('username',username);
     }
-
     //updating room
     updateRoom(room){
         this.room = room;
